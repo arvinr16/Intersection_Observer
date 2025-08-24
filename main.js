@@ -1,13 +1,21 @@
 const boxes = document.querySelectorAll('.box');
+let lastScrollY = window.scrollY; // posisi scroll sebelumnya
 
-const observer = new IntersectionObserver(entries => {
+const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show');
+        if(entry.isIntersecting) {
+            if(window.scrollY > lastScrollY) {
+                // Scroll ke bawah - fade in
+                entry.target.classList.add('show');
+                entry.target.classList.remove('hide');
+            } else {
+                // Scroll ke atas - fade out
+                entry.target.classList.remove('show');
+                entry.target.classList.add('hide');
+            }
         }
     });
-}, { threshold: 0.3 }); // muncul ketika 10% elemen terlihat
+    lastScrollY = window.scrollY;
+}, {threshold: 0.3});
 
 boxes.forEach(box => observer.observe(box));

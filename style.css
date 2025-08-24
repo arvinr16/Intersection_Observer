@@ -7,17 +7,27 @@
 section {
     display: flex;
     justify-content: center;
-    height: 100vh;
+    padding: 100vh
 }
 
 .section-first {
     background: #333;
     color: white;
+    padding: 250px 10px;
 }
 
 .section-second {
     background: #333;
     color: white;
+    padding: 250px 10px;
+}
+
+.box1 {
+    padding: 260px 10px;
+}
+
+.box2 {
+    padding: 260px 10px;
 }
 
 .box {
