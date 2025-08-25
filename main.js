@@ -16,6 +16,6 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
     lastScrollY = window.scrollY;
-}, {threshold: 0.3});
+}, {threshold: 1});
 
 boxes.forEach(box => observer.observe(box));
